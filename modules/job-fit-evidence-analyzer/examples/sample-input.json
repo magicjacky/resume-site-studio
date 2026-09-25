@@ -1,0 +1,57 @@
+{
+  "role": "Fictional Senior Full-Stack Engineer",
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "category": "hard_gate",
+      "requirement": "Can work in the stated location",
+      "jd_sources": ["JD-002"],
+      "status": "proven",
+      "candidate_sources": ["USR-001"],
+      "confidence": 0.95
+    },
+    {
+      "id": "REQ-002",
+      "category": "core",
+      "requirement": "Build production web applications with TypeScript",
+      "jd_sources": ["JD-004"],
+      "status": "proven",
+      "candidate_sources": ["CV-004"],
+      "confidence": 0.95
+    },
+    {
+      "id": "REQ-003",
+      "category": "core",
+      "requirement": "Design reliable backend services",
+      "jd_sources": ["JD-006"],
+      "status": "proven",
+      "candidate_sources": ["CV-009"],
+      "confidence": 0.85
+    },
+    {
+      "id": "REQ-004",
+      "category": "core",
+      "requirement": "Operate services on Kubernetes",
+      "jd_sources": ["JD-008"],
+      "status": "transferable",
+      "candidate_sources": ["CV-011"],
+      "confidence": 0.75
+    },
+    {
+      "id": "REQ-005",
+      "category": "supporting",
+      "requirement": "Experience in financial technology",
+      "jd_sources": ["JD-010"],
+      "status": "not_shown",
+      "confidence": 0.9
+    },
+    {
+      "id": "REQ-006",
+      "category": "supporting",
+      "requirement": "Mentor other engineers",
+      "jd_sources": ["JD-012"],
+      "status": "unknown",
+      "confidence": 0.4
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "简历网站工坊"
+  short_description: "分析职位匹配，并把真实简历做成可编辑网站"
+  default_prompt: "Use $resume-site-studio to analyze my target role when provided and build a truthful, editable resume website."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "职位匹配证据分析器"
+  short_description: "基于真实证据分析职位匹配、硬门槛与能力缺口"
+  default_prompt: "Use $job-fit-evidence-analyzer to compare this job description with my background and produce a traceable fit report."
