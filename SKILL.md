@@ -1,9 +1,9 @@
 ---
 name: resume-site-studio
-description: Analyze a target job against real career evidence and turn a resume, CV, or career history into an editable personal website or portfolio with optional motion. Use for job-fit analysis, resume-to-job gap analysis, resume websites, career homepages, academic profiles, or portfolios. Not for DOCX/PDF-only resume editing.
+description: 分析目标职位与真实职业证据，把简历、履历或职业资料制作成可编辑的个人网站或作品集，并可加入适度动态效果。适用于职位匹配、简历与岗位差距分析、简历网站、职业主页、学术主页和作品集；不用于只编辑 DOCX 或 PDF 简历。Analyze job fit against real career evidence and build an editable resume website or portfolio when users request these tasks.
 ---
 
-# Resume Site Studio
+# 简历网站工坊 · Resume Site Studio
 
 Analyze target roles when requested, then build a personal website that explains who the person is, what they have done, and how to contact them. Treat the resume as evidence, not as a page layout to copy. Deliver an editable, responsive static site that works locally before offering publication. This skill uses the portable `SKILL.md` format. Follow the host's available file, document, browser, and shell tools; no specific product or connector is required.
 

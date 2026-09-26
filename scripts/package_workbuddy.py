@@ -1,4 +1,4 @@
-"""Build a WorkBuddy upload ZIP without changing the portable source skill."""
+"""Build a Chinese-first upload ZIP for WorkBuddy and Doubao Work."""
 
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile
@@ -8,14 +8,16 @@ import argparse
 ROOT = Path(__file__).resolve().parents[1]
 EXTRA = """description_zh: 分析职位匹配，并根据真实简历制作可编辑的个人网站或作品集。
 description_en: Analyze job fit and build an editable personal website from real career evidence.
-version: 2.0.1
+display_name: 简历网站工坊
+display_name_en: Resume Site Studio
+version: 2.0.2
 author: magicjacky
 """
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=ROOT.parent / "resume-site-studio-workbuddy.zip")
+    parser.add_argument("--output", type=Path, default=ROOT / "dist" / "resume-site-studio-cn.zip")
     output = parser.parse_args().output.resolve()
     source = (ROOT / "SKILL.md").read_text(encoding="utf-8")
     if not source.startswith("---\n"):
