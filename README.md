@@ -2,6 +2,14 @@
 
 这是一个可单次安装的求职与简历网站主 Skill。它内置职位匹配证据分析器，可先分析招聘要求和真实经历，再把简历、履历或项目资料转换成可编辑的个人网站。核心是通用的 `SKILL.md`，没有平台专属命令、付费服务或外部依赖。`assets/starter/` 是可选的静态网站示例，包含专业和动态两种展示模式。示例里的“林序”及其履历均为虚构内容。
 
+## 一键下载
+
+**[下载最新版安装包：resume-site-studio-workbuddy.zip](https://github.com/magicjacky/resume-site-studio/releases/latest/download/resume-site-studio-workbuddy.zip)**
+
+[查看全部版本与更新说明](https://github.com/magicjacky/resume-site-studio/releases)
+
+下载的是 GitHub Release Asset，里面已经同时包含主 Skill 和 `job-fit-evidence-analyzer` 模块。仓库中的 `assets/starter/` 是简历网站演示素材，与 GitHub 的 Release Assets 不是同一个概念。
+
 ## 包含内容
 
 - `SKILL.md`：跨平台工作流程与交付标准。
@@ -24,7 +32,7 @@
 | 豆包工作 | 使用客户端“技能 · 连接器 · 伙伴”中的自定义技能入口导入 Skill 文件；本包仅使用通用 `SKILL.md` 和相对路径资源。具体版本的本地目录与上传格式需在客户端核对。 |
 | 千问办公 | 复制到 `~/.qwenworkcn/skills/`，或在“扩展 → 技能 → 安装技能”上传 `SKILL.md` 和辅助文件。 |
 
-仓库中的 `dist/resume-site-studio-workbuddy.zip` 可以直接用于支持 ZIP 导入的平台。安装后只需要调用 `resume-site-studio`；主 Skill 会根据任务自动读取内置模块。
+可以直接下载上方的最新版 ZIP，用于支持 ZIP 导入的平台。仓库中的 `dist/resume-site-studio-workbuddy.zip` 是同一安装包的源码仓库副本。安装后只需要调用 `resume-site-studio`；主 Skill 会根据任务自动读取内置模块。
 
 建议先在各平台用一句话测试触发：“用 resume-site-studio 根据我的简历做一个个人网站，先生成本地预览。”能否自动触发取决于平台的技能发现机制；也可以直接指定技能名。
 
