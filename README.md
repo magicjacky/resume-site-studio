@@ -10,6 +10,26 @@
 
 下载的是 GitHub Release Asset，里面已经同时包含主 Skill 和 `job-fit-evidence-analyzer` 模块。仓库中的 `assets/starter/` 是简历网站演示素材，与 GitHub 的 Release Assets 不是同一个概念。
 
+## 案例展示
+
+下面是使用本 Skill 制作的全栈开发工程师简历网站。人物、公司、学校、项目和指标均为虚构演示数据。
+
+[在线预览](https://magicjacky.github.io/resume-site-studio-demo/) · [案例源码](https://github.com/magicjacky/resume-site-studio-demo)
+
+### 桌面端首屏
+
+![全栈开发工程师简历网站桌面端首屏](assets/readme/showcase-hero.png)
+
+### 项目案例区
+
+![全栈开发工程师简历网站项目案例区](assets/readme/showcase-projects.png)
+
+### 移动端
+
+<p align="center">
+  <img src="assets/readme/showcase-mobile.png" width="390" alt="全栈开发工程师简历网站移动端首屏">
+</p>
+
 ## 包含内容
 
 - `SKILL.md`：跨平台工作流程与交付标准。
