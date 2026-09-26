@@ -4,13 +4,15 @@
 
 ## 一键下载
 
-**[下载 v2.0.3 中文界面安装包：resume-site-studio-v2.0.3-cn.zip](https://github.com/magicjacky/resume-site-studio/releases/download/v2.0.3/resume-site-studio-v2.0.3-cn.zip)**
+**[下载 v2.1.0 中文豪华版安装包：resume-site-studio-v2.1.0-cn.zip](https://github.com/magicjacky/resume-site-studio/releases/download/v2.1.0/resume-site-studio-v2.1.0-cn.zip)**
 
-[下载 v2.0.3 标准跨平台包](https://github.com/magicjacky/resume-site-studio/releases/download/v2.0.3/resume-site-studio-v2.0.3-portable.zip)
+[下载 v2.1.0 标准跨平台包](https://github.com/magicjacky/resume-site-studio/releases/download/v2.1.0/resume-site-studio-v2.1.0-portable.zip)
 
 [查看全部版本与更新说明](https://github.com/magicjacky/resume-site-studio/releases)
 
 中文界面安装包用于 WorkBuddy 和豆包工作，标题、简介和详情说明均为中文；标准跨平台包用于 Codex、Claude Code 和严格遵循 Agent Skills 规范的平台。两个包都包含主 Skill 和 `job-fit-evidence-analyzer` 模块。
+
+v2.1.0 将默认网页质量提升为案例级展示：即使用户要求“简洁、专业、浅色”，也会生成具有沉浸式首屏、光影层次、证据数字、丰富区块节奏和克制动态的高质感网站，而不是普通文档式网页。
 
 ## 案例展示
 
@@ -32,12 +34,21 @@
   <img src="assets/readme/showcase-mobile.png" width="390" alt="全栈开发工程师简历网站移动端首屏">
 </p>
 
+### 浅色豪华版模板
+
+![运营助理浅色豪华简历网站](assets/readme/showcase-operations-premium.png)
+
+<p align="center">
+  <img src="assets/readme/showcase-operations-premium-mobile.png" width="390" alt="运营助理浅色豪华简历网站移动端首屏">
+</p>
+
 ## 包含内容
 
 - `SKILL.md`：跨平台工作流程与交付标准。
 - `modules/job-fit-evidence-analyzer/`：内置的职位匹配、硬门槛和证据缺口分析 Skill。
 - `references/`：事实提取、动态设计和验收清单。
 - `assets/starter/`：无需构建即可预览的 HTML/CSS/JavaScript 示例。
+- `assets/templates/professional-light/`：默认的浅色豪华职业展示模板，包含沉浸式首屏、证据面板、滚动进度和响应式动效。
 - `agents/openai.yaml`：Codex 可选展示信息；其他平台可忽略。
 - `scripts/package_workbuddy.py`：同时生成中文界面包和标准跨平台包。
 - `scripts/SKILL.zh-CN.md`：WorkBuddy、豆包工作专用的中文标题、简介和完整说明。

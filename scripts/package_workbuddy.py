@@ -32,7 +32,7 @@ def build(output: Path, skill_source: Path) -> None:
         archive.writestr("SKILL.md", source)
         for path, relative in iter_payload_files():
             archive.write(path, relative)
-        for name in ("README.md", "LICENSE", "THIRD_PARTY_NOTICES.md", "COMMERCIAL_USE.md"):
+        for name in ("LICENSE", "THIRD_PARTY_NOTICES.md", "COMMERCIAL_USE.md"):
             archive.write(ROOT / name, name)
 
 

@@ -23,7 +23,10 @@ class PackageTests(unittest.TestCase):
                 self.assertEqual(frontmatter["display_name"], "简历网站工坊")
                 self.assertIn("## 工作流程", source)
                 self.assertIn("modules/job-fit-evidence-analyzer/SKILL.md", archive.namelist())
+                self.assertIn("assets/templates/professional-light/index.html", archive.namelist())
+                self.assertIn("assets/templates/professional-light/styles.css", archive.namelist())
                 self.assertFalse(any(name.startswith("assets/readme/") for name in archive.namelist()))
+                self.assertLess(output.stat().st_size, 100_000)
 
     def test_portable_package_keeps_standard_name(self):
         with tempfile.TemporaryDirectory() as directory:
