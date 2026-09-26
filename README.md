@@ -4,7 +4,7 @@
 
 ## 一键下载
 
-**[下载最新版安装包：resume-site-studio-workbuddy.zip](https://github.com/magicjacky/resume-site-studio/releases/latest/download/resume-site-studio-workbuddy.zip)**
+**[下载 v2.0.1 安装包：resume-site-studio-v2.0.1-workbuddy.zip](https://github.com/magicjacky/resume-site-studio/releases/download/v2.0.1/resume-site-studio-v2.0.1-workbuddy.zip)**
 
 [查看全部版本与更新说明](https://github.com/magicjacky/resume-site-studio/releases)
 
