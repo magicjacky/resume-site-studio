@@ -4,11 +4,13 @@
 
 ## 一键下载
 
-**[下载 v2.0.2 中文安装包：resume-site-studio-v2.0.2-cn.zip](https://github.com/magicjacky/resume-site-studio/releases/download/v2.0.2/resume-site-studio-v2.0.2-cn.zip)**
+**[下载 v2.0.3 中文界面安装包：resume-site-studio-v2.0.3-cn.zip](https://github.com/magicjacky/resume-site-studio/releases/download/v2.0.3/resume-site-studio-v2.0.3-cn.zip)**
+
+[下载 v2.0.3 标准跨平台包](https://github.com/magicjacky/resume-site-studio/releases/download/v2.0.3/resume-site-studio-v2.0.3-portable.zip)
 
 [查看全部版本与更新说明](https://github.com/magicjacky/resume-site-studio/releases)
 
-下载的是 GitHub Release Asset，可直接导入 WorkBuddy 或豆包工作，里面已经同时包含主 Skill 和 `job-fit-evidence-analyzer` 模块。安装包的界面元数据以中文为主，同时保留英文描述，技能执行能力不受界面语言影响。仓库中的 `assets/starter/` 是简历网站演示素材，与 GitHub 的 Release Assets 不是同一个概念。
+中文界面安装包用于 WorkBuddy 和豆包工作，标题、简介和详情说明均为中文；标准跨平台包用于 Codex、Claude Code 和严格遵循 Agent Skills 规范的平台。两个包都包含主 Skill 和 `job-fit-evidence-analyzer` 模块。
 
 ## 案例展示
 
@@ -37,8 +39,10 @@
 - `references/`：事实提取、动态设计和验收清单。
 - `assets/starter/`：无需构建即可预览的 HTML/CSS/JavaScript 示例。
 - `agents/openai.yaml`：Codex 可选展示信息；其他平台可忽略。
-- `scripts/package_workbuddy.py`：生成适用于 WorkBuddy 和豆包工作的中文优先上传 ZIP。
-- `dist/resume-site-studio-cn.zip`：已经生成的单次安装包，内含主 Skill 和职位分析模块。
+- `scripts/package_workbuddy.py`：同时生成中文界面包和标准跨平台包。
+- `scripts/SKILL.zh-CN.md`：WorkBuddy、豆包工作专用的中文标题、简介和完整说明。
+- `dist/resume-site-studio-cn.zip`：中文界面安装包。
+- `dist/resume-site-studio-portable.zip`：标准跨平台安装包。
 
 ## 安装
 
@@ -46,10 +50,10 @@
 
 | 平台 | 安装方式 |
 | --- | --- |
-| Codex | 复制到用户技能目录（本机可用 `~/.codex/skills/`；新版文档也列出 `~/.agents/skills/`）或项目的 `.agents/skills/`。 |
-| Claude Code | 复制到 `~/.claude/skills/`，或项目的 `.claude/skills/`。 |
+| Codex | 使用标准跨平台包，复制到用户技能目录（本机可用 `~/.codex/skills/`；新版文档也列出 `~/.agents/skills/`）或项目的 `.agents/skills/`。 |
+| Claude Code | 使用标准跨平台包，复制到 `~/.claude/skills/`，或项目的 `.claude/skills/`。 |
 | WorkBuddy | 下载中文安装包，在 Skill Marketplace 的“添加技能 → 上传技能”导入。安装包包含 `display_name: 简历网站工坊` 以及中英文描述。 |
-| 豆包工作 | 下载中文安装包，在“插件 · 技能 · 伙伴 → 技能 → + 添加 → 上传技能”导入。根 `description` 已改为中文优先。 |
+| 豆包工作 | 下载中文安装包，在“插件 · 技能 · 伙伴 → 技能 → + 添加 → 上传技能”导入。根 `name`、`description` 和正文均为中文。 |
 | 千问办公 | 复制到 `~/.qwenworkcn/skills/`，或在“扩展 → 技能 → 安装技能”上传 `SKILL.md` 和辅助文件。 |
 
 可以直接下载上方的最新版 ZIP，用于支持 ZIP 导入的平台。仓库中的 `dist/resume-site-studio-cn.zip` 是同一安装包的源码仓库副本。安装后只需要调用 `resume-site-studio` 或“简历网站工坊”；主 Skill 会根据任务自动读取内置模块。
@@ -57,9 +61,9 @@
 ### 界面语言说明
 
 - WorkBuddy 官方格式支持 `display_name`、`description_zh` 和 `description_en`，中文安装包已经写入这些字段。
-- 豆包工作官方导入说明要求读取根 `SKILL.md` 的 `name` 和 `description`。中文安装包把通用 `description` 也设为中文优先，因此简介会显示中文。
-- `name: resume-site-studio` 是跨平台机器标识。Agent Skills 标准要求它使用小写字母、数字和连字符，因此不能直接改成中文。
-- 当前通用规范没有“跟随电脑系统语言自动切换”的字段。支持本地化字段的平台可显示中文名；不支持的平台会显示机器标识，但中文简介和执行过程仍然正常。
+- 豆包工作直接使用根 `SKILL.md` 的 `name` 和 `description` 作为标题和简介，因此中文安装包将这两个字段都设为中文。
+- 标准跨平台包保留 `name: resume-site-studio`。Agent Skills 标准要求它使用小写字母、数字和连字符；中文界面包则针对允许中文名称的 WorkBuddy 和豆包工作单独生成。
+- 当前通用规范没有“跟随电脑系统语言自动切换”的字段，所以分别提供中文界面包和标准跨平台包。
 
 建议先在各平台用一句话测试触发：“用 resume-site-studio 根据我的简历做一个个人网站，先生成本地预览。”能否自动触发取决于平台的技能发现机制；也可以直接指定技能名。
 

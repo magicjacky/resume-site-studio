@@ -1,4 +1,4 @@
-"""Build a Chinese-first upload ZIP for WorkBuddy and Doubao Work."""
+"""Build Chinese UI and portable ZIP packages for the skill."""
 
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile
@@ -6,33 +6,55 @@ import argparse
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXTRA = """description_zh: 分析职位匹配，并根据真实简历制作可编辑的个人网站或作品集。
-description_en: Analyze job fit and build an editable personal website from real career evidence.
-display_name: 简历网站工坊
-display_name_en: Resume Site Studio
-version: 2.0.2
-author: magicjacky
-"""
+CHINESE_SKILL = ROOT / "scripts" / "SKILL.zh-CN.md"
+
+
+def iter_payload_files():
+    for folder in ("references", "assets", "modules"):
+        for path in sorted((ROOT / folder).rglob("*")):
+            if not path.is_file():
+                continue
+            relative = path.relative_to(ROOT)
+            if "__pycache__" in path.parts or path.suffix == ".pyc":
+                continue
+            if relative.parts[:2] == ("assets", "readme"):
+                continue
+            yield path, relative.as_posix()
+
+
+def build(output: Path, skill_source: Path) -> None:
+    source = skill_source.read_text(encoding="utf-8")
+    if not source.startswith("---\n"):
+        raise ValueError(f"Frontmatter is missing: {skill_source}")
+
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with ZipFile(output, "w", ZIP_DEFLATED) as archive:
+        archive.writestr("SKILL.md", source)
+        for path, relative in iter_payload_files():
+            archive.write(path, relative)
+        for name in ("README.md", "LICENSE", "THIRD_PARTY_NOTICES.md", "COMMERCIAL_USE.md"):
+            archive.write(ROOT / name, name)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=ROOT / "dist" / "resume-site-studio-cn.zip")
-    output = parser.parse_args().output.resolve()
-    source = (ROOT / "SKILL.md").read_text(encoding="utf-8")
-    if not source.startswith("---\n"):
-        raise ValueError("SKILL.md frontmatter is missing")
-    source = source.replace("\n---\n", "\n" + EXTRA + "---\n", 1)
-    output.parent.mkdir(parents=True, exist_ok=True)
-    with ZipFile(output, "w", ZIP_DEFLATED) as archive:
-        archive.writestr("SKILL.md", source)
-        for folder in ("references", "assets", "modules"):
-            for path in sorted((ROOT / folder).rglob("*")):
-                if path.is_file() and "__pycache__" not in path.parts and path.suffix != ".pyc":
-                    archive.write(path, path.relative_to(ROOT).as_posix())
-        for name in ("README.md", "LICENSE", "THIRD_PARTY_NOTICES.md", "COMMERCIAL_USE.md"):
-            archive.write(ROOT / name, name)
-    print(output)
+    parser.add_argument("--variant", choices=("cn", "portable", "all"), default="all")
+    parser.add_argument("--output-dir", type=Path, default=ROOT / "dist")
+    args = parser.parse_args()
+    output_dir = args.output_dir.resolve()
+
+    outputs = []
+    if args.variant in ("cn", "all"):
+        output = output_dir / "resume-site-studio-cn.zip"
+        build(output, CHINESE_SKILL)
+        outputs.append(output)
+    if args.variant in ("portable", "all"):
+        output = output_dir / "resume-site-studio-portable.zip"
+        build(output, ROOT / "SKILL.md")
+        outputs.append(output)
+
+    for output in outputs:
+        print(output)
 
 
 if __name__ == "__main__":
