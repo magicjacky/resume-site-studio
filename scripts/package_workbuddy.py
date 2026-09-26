@@ -8,7 +8,7 @@ import argparse
 ROOT = Path(__file__).resolve().parents[1]
 EXTRA = """description_zh: 分析职位匹配，并根据真实简历制作可编辑的个人网站或作品集。
 description_en: Analyze job fit and build an editable personal website from real career evidence.
-version: 2.0.0
+version: 2.0.1
 author: magicjacky
 """
 
